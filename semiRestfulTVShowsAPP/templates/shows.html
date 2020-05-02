@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <title>All Shows</title>
+</head>
+<body>
+    <header class="jumbotron jumbotron-fluid">
+        <h2 class="text-center">
+            Semi-Restful TV Shows
+        </h2>
+        <h4 class="text-center text-muted">
+            All Shows
+        </h4>
+        <h6 class="text-center">
+            <script>
+                document.write('<a href="' + document.referrer + '">Go Back</a>');
+            </script>
+        </h6>
+    </header>
+    
+    <main class="container">
+        <div class="row">
+            <div class="col-sm-12">
+                <table class="table table-bordered table-striped">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Network</th>
+                        <th>Release Date</th>
+                        <th>Actions</th>
+                    </tr>
+                    {% for show in allShows %}
+                        <tr>
+                            <td>{{show.id}}</td>
+                            <td>{{show.title}}</td>
+                            <td>{{show.network}}</td>
+                            <td>{{show.releaseDate}}</td>
+                            <td><a href="/shows/{{show.id}}">Show</a> | <a href="/shows/{{show.id}}/edit">Edit</a> | <a href="/shows/{{show.id}}/destroy">Delete</a></td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+                <a href="/shows/new">Click here to create a new show.</a>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
